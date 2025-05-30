@@ -14,14 +14,14 @@ In the broadest sense, *annotation* here is understood as Species/Biotype/Descri
 
 Annotations can also be filtered out by confidence. Chromosample will look for keywords that hint at a high level (manually curated) or low level (predicted in sillico, etc.) of confidence regarding the relevance of any given annotation. Some keywords are specified in the CONFIDENCE_LEVELS global dictionary but again, user discretion is encouraged.
 
-Chromosample can also generate random sequences. These will be labeled as "random" species, "random" biotype and no description. The length distribution will match that of the annotated sequences and the proportion can be specified in the command-line arguments (with a decimal).
+Chromosample can also generate random sequences. These will be labeled as "random" species, "random" biotype and come with no description. The length distribution will match that of the annotated sequences and the proportion can be specified in the command-line arguments (with a decimal).
 
 ## Key Features
 
 - Samples sequences from annotated genomic features in GFF3 files
-- Generates random DNA sequences of specified lengths
+- Generates random DNA sequences
 - Handles large genome files efficiently, supports gzipped inputs
-- Produces detailed reports with statistics and visualizations
+- Produces a detailed markdown (optionally pdf) report with statistics and visualizations
 - Supports multiple filtering and truncation strategies (sampling parts of annotated sequences for features with an outsized length bias, e.g. lncRNAs)
 
 ## Installation & requirements
@@ -31,12 +31,12 @@ Chromosample can also generate random sequences. These will be labeled as "rando
    ```bash
    pip install pyfaidx numpy
    ```
-3. For full functionality (plots and reports):
+3. For full functionality (plots and report):
   ```bash
   python3 -m pip install matplotlib seaborn pandas pandoc
   ```
 
-4. For a comprehensive reports including metrics, logging, figures, etc. `pandoc` is required to convert the markdown file into a pdf.
+4. For a comprehensive report including metrics, logging, figures, etc. `pandoc` is required to convert the markdown file into a pdf.
 
 ## Command-line usage
 
@@ -53,7 +53,7 @@ python3 chromosample.py --fasta_patterns "path/to/*.fa" --gff_patterns "path/to/
 --gff_patterns  Glob pattern(s) for input GFF3 files
 --file_pairs  Explicit species-FASTA-GFF triplets (repeatable)
 --output_fasta  Path for output FASTA file (required)
---report_dir  Directory for reports and plots (default: "sampler_report")
+--report_dir  Directory for report and plots (default: "sampler_report")
 --temp_dir  Directory for temporary files
 ```
 
