@@ -41,7 +41,7 @@ Chromosample can also generate random sequences. These will be labeled as "rando
 ## Command-line usage
 
 ```bash
-python chromosample.py --fasta_patterns "path/to/*.fa" --gff_patterns "path/to/*gff" [other options]
+python3 chromosample.py --fasta_patterns "path/to/*.fa" --gff_patterns "path/to/*gff" [other options]
 ```
 
 ### Main Arguments
@@ -98,7 +98,7 @@ Argument  Description
 
 Basic usage with automatic FASTA-GFF matching (multi-species):
 ```bash
-python chromosample.py \
+python3 chromosample.py \
   --fasta_patterns "genomes/*.fa.gz" \
   --gff_patterns "annotations/*.gff.gz" \
   --output_fasta sampled_sequences.fa \
@@ -109,7 +109,7 @@ The FASTA/GFF pairs *must* begin with the same prefix (the first string in a fil
 
 Explicit file pairs with custom filtering:
 ```bash
-python chromosample.py \
+python3 chromosample.py \
   --file_pairs human hg38.fa hg38.gff \
   --file_pairs mouse mm10.fa mm10.gff \
   --output_fasta samples.fa \
@@ -117,3 +117,11 @@ python chromosample.py \
   --annotation_confidence_level high
 ```
 
+Random sequences only:
+
+```
+python3 chromosample.py \
+  --fasta_patterns "data/*.fa" \
+  --output_fasta random_samples.fa \
+  --annotated_proportion 0 --random_proportion 1
+```
